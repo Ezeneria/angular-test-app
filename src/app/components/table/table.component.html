@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th width="6.3%" scope="col">ID</th>
+    <th width="23.3%" scope="col">Название</th>
+    <th width="6%" scope="col">Статус</th>
+    <th width="64.4%" scope="col">Исполнитель</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr
+    *ngFor="let item of dataTable?.value"
+    (click)="getOrder(item.id)"
+  >
+      <td class="priority" [ngClass]="{'priority-medium': item.priorityName == 'Средний','priority-hight': item.priorityName == 'Высокий' }">{{item.taskTypeId}}</td>
+    <td>
+      {{item.name}}
+    </td>
+      <td *ngIf="item.statusName == 'Открыта'"><span class="status status-open">{{item.statusName}}</span></td>
+      <td *ngIf="item.statusName == 'Выполнена'"><span class="status status-close">{{item.statusName}}</span></td>
+      <td *ngIf="item.statusName == 'В работе'"><span class="status status-progress">{{item.statusName}}</span></td>
+      <td *ngIf="item.statusName == 'Отложена'"><span class="status status-waited">{{item.statusName}}</span></td>
+    <td>{{item.executorName}}</td>
+  </tr>
+  </tbody>
+</table>

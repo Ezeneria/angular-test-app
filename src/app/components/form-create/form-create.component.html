@@ -1,0 +1,18 @@
+<div class="form-create fadeInRight">
+  <div class="title">
+    <span>Новая заявка</span>
+    <div (click)="closeCreateForm()" class="close"></div>
+  </div>
+
+  <form [formGroup]="createOrder" (ngSubmit)="submit()">
+    <label>
+      <span>Название</span>
+      <input formControlName="name" type="text">
+    </label>
+    <label>
+      <span>Описание</span>
+      <textarea formControlName="comment" type="text"></textarea>
+    </label>
+    <button type="submit" class="btn" [disabled]="!createOrder.valid">Сохранить</button>
+  </form>
+</div>

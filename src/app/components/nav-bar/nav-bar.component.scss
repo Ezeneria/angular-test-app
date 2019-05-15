@@ -1,0 +1,77 @@
+.nav-bar{
+  background-color: #002137;
+  height: 100vh;
+  width: 95px;
+  padding-top: 16px;
+  .logo{
+    margin-bottom: 23px;
+  }
+  ul li {
+    width: 100%;
+    text-align: center;
+    &:nth-child(1){
+      a:before{
+        background-image: url(../../../assets/img/book-icon.png);
+        width: 22px;
+        height: 26px;
+        top: 10px;
+      }
+    }
+    &:nth-child(2){
+      a:before{
+        background-image: url(../../../assets/img/orders-icon.png);
+        width: 18px;
+        height: 24px;
+      }
+    }
+    &:nth-child(3){
+      a:before{
+        background-image: url(../../../assets/img/mans-icon.png);
+        width: 25px;
+        height: 17px;
+        top: 18px;
+      }
+    }
+    &:nth-child(4){
+      a:before{
+        background-image: url(../../../assets/img/build-icon.png);
+        width: 25px;
+        height: 26px;
+        top: 10px;
+      }
+    }
+    &:nth-child(5){
+      a:before{
+        background-image: url(../../../assets/img/analytics-icon.png);
+        width: 26px;
+        height: 24px;
+      }
+    }
+    &:nth-child(6){
+      a:before{
+        background-image: url(../../../assets/img/settings-icon.png);
+        width: 25px;
+        height: 24px;
+      }
+    }
+    a{
+      position: relative;
+      display: block;
+      padding: 42px 0 14px 0;
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 300;
+      &:before{
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        background-repeat: no-repeat;
+        top: 12px;
+      }
+      &.active-link{
+        background-color: #002c49;
+      }
+    }
+  }
+}

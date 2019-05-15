@@ -1,0 +1,25 @@
+<div class="form-edit fadeInRight">
+  <div class="title relative">
+    <span class="number-order"> № {{formContent.taskTypeId}}</span>
+    <span class="description-order">
+        {{formContent.name}}
+    </span>
+    <div (click)="closeEditForm()" class="close"></div>
+   </div>
+  <form>
+    <div class="field">
+      <div class="field-title">Описание</div>
+      <div class="field-description">{{formContent.description}}</div>
+    </div>
+    <div class="field comment-title">
+      <div class="field-title">Добавление комментариев</div>
+    </div>
+    <div class="field">
+      <div class="user">
+          <div class="user-title">no name</div>
+      </div>
+      <textarea type="text"></textarea>
+    </div>
+    <button type="submit" class="btn">Сохранить</button>
+  </form>
+</div>

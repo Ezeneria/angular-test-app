@@ -1,0 +1,111 @@
+:host{
+  overflow: hidden;
+}
+.table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border-collapse: collapse;
+  height: calc(100vh - 130px);
+  overflow-y: scroll;
+  .status {
+    color: #ffffff;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 300;
+    padding: 5px 15px;
+    border-radius: 11px;
+    background-color: #c0c0c0;
+    &-open {
+      background-color: #fd5e53;
+    }
+    &-close {
+      background-color: #3cb371;
+    }
+    &-done {
+      background-color: #9acd32;
+    }
+    &-progress {
+      background-color: #ffb02e;
+    }
+    &-waited {
+      background-color: #c0295c;
+    }
+  }
+  .priority {
+    position: relative;
+    &:before {
+      position: absolute;
+      content: '';
+      border-radius: 2px;
+      width: 5px;
+      height: 100%;
+      left: 0;
+      top: 0;
+    }
+    &-medium{
+      &:before{
+        background-color: #f75394;
+      }
+
+    }
+    &-hight{
+      &:before{
+        background-color: #681c23;
+      }
+    }
+  }
+  thead th {
+    position: relative;
+    vertical-align: bottom;
+    border-top: 0;
+    color: #404147;
+    font-family: Ubuntu;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 14px 15px;
+    &:after {
+      position: absolute;
+      content: '';
+      width: 1px;
+      height: 22px;
+      right: 0;
+      background-color: #e2e7ea;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &:first-child {
+      text-align: center;
+    }
+    &:last-child {
+      &:before {
+        content: none;
+      }
+    }
+  }
+  tbody > tr{
+    background-color: transparent;
+    transition: background-color .5s ease-in-out;
+    cursor: pointer;
+    &:hover{
+      background-color: rgba(211, 210, 212, 0.33);
+    }
+  }
+  td {
+    color: #525460;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 17px 15px;
+    &:first-child {
+      padding-left: 44px;
+    }
+  }
+  td, th {
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+    text-align: inherit;
+  }
+}

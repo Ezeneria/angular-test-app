@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { EventEmmiterService } from '../../services/event-emmiter.service';
 
 
@@ -7,12 +7,15 @@ import { EventEmmiterService } from '../../services/event-emmiter.service';
   templateUrl: './form-edit.component.html',
   styleUrls: ['./form-edit.component.scss']
 })
-export class FormEditComponent {
+export class FormEditComponent implements OnInit{
   @Input() formContent;
 
   constructor(private eventEmmiterService: EventEmmiterService) {}
 
   closeEditForm() {
     this.eventEmmiterService.watchEditForm(false);
+  }
+  ngOnInit() {
+    console.log(this.formContent.lifetimeItems);
   }
 }

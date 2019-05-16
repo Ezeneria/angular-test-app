@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {OrdersService} from '../../services/orders.service';
 import {EventEmmiterService} from '../../services/event-emmiter.service';
@@ -8,7 +8,7 @@ import {EventEmmiterService} from '../../services/event-emmiter.service';
   templateUrl: './form-create.component.html',
   styleUrls: ['./form-create.component.scss']
 })
-export class FormCreateComponent implements OnInit {
+export class FormCreateComponent implements OnInit, OnDestroy {
   createOrder: FormGroup;
   constructor(
     private fb: FormBuilder,
@@ -25,13 +25,21 @@ export class FormCreateComponent implements OnInit {
     this.eventEmmiterService.watchCreateForm(false);
   }
   submit() {
-    this.orderService.createOrder(this.createOrder.value).subscribe(val => console.log(val));
+    this.orderService.createOrder(this.createOrder.value).subscribe(id => {
+      this.orderService.getOrder(id).subscribe(order => {
+        this.eventEmmiterService.getNewOrder(order);
+        console.log(order);
+      });
+    });
   }
   resetForm() {
     this.createOrder.reset(this.createOrder.value);
   }
   ngOnInit() {
     this.initForm();
+  }
+  ngOnDestroy(){
+
   }
 
 }

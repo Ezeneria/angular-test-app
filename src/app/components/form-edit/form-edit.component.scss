@@ -6,13 +6,49 @@
   height: 100%;
 }
 .user{
+  margin-bottom: 30px;
   &-title{
     color: #525460;
     font-family: Ubuntu;
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 0.07px;
+    margin-bottom: 10px;
   }
+  &-comment{
+    background-color: #e3e9f4;
+    padding: 10px 10px 21px 10px;
+  }
+  &-created{
+
+    color: #63677c;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.06px;
+    margin-bottom: 18px;
+  }
+}
+.comments{
+  margin-top: 45px;
+  .user{
+    position: relative;
+    padding-left: 46px;
+    &:before{
+      position: absolute;
+      content: '';
+      width: 40px;
+      height: 40px;
+      border: 1px solid #c5cdd3;
+      background-color: #f5f5f5;
+      border-radius: 100%;
+      left: 0;
+      top: 0;
+    }
+    &-title{
+      padding-top: 7px;
+    }
+  }
+
 }
 .close {
   cursor: pointer;
@@ -94,7 +130,9 @@
       margin-top: 74px;
     }
   }
+&-bar{
 
+}
 }
 @keyframes fadeInRight {
   from {

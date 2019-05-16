@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ListOrderComponent } from './components/list-order/list-order.component';
@@ -38,7 +40,7 @@ const appRoutes: Routes = [
   { path: 'settings', component: SettingsAdminComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
-
+registerLocaleData(localeRu, 'ru');
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +66,8 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'ru' }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

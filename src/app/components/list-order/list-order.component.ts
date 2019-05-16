@@ -8,7 +8,6 @@ import {EventEmmiterService} from '../../services/event-emmiter.service';
   styleUrls: ['./list-order.component.scss']
 })
 export class ListOrderComponent implements OnInit, OnDestroy {
-  listOrders;
   editOrderForm = false;
   createForm = false;
   formEditContent;
@@ -19,10 +18,6 @@ export class ListOrderComponent implements OnInit, OnDestroy {
     this.editOrderForm = false;
   }
   ngOnInit() {
-    this.orderService.orderList().subscribe(orders => {
-        this.listOrders = orders;
-      }
-    );
     this.eventEmmiterService.closeEditForm.subscribe( status => this.editOrderForm = status);
     this.eventEmmiterService.closeCreateForm.subscribe( status => this.createForm = status);
     this.eventEmmiterService.data.subscribe(form => {

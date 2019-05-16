@@ -7,6 +7,7 @@ export class EventEmmiterService {
   data = new EventEmitter<any>();
   closeEditForm = new EventEmitter<any>();
   closeCreateForm = new EventEmitter<any>();
+  newOrder = new EventEmitter<any>();
   constructor() { }
   sendEmmit(data: any) {
     this.data.emit(data);
@@ -16,5 +17,8 @@ export class EventEmmiterService {
   }
   watchCreateForm(data: boolean) {
     this.closeCreateForm.emit(data);
+  }
+  getNewOrder(data) {
+    this.newOrder.emit(data);
   }
 }

@@ -1,7 +1,7 @@
 <app-search-input></app-search-input>
 <button (click)="showCreateForm()" class="btn">Создать заявку</button>
 <div class="flex relative h-100">
-  <app-table [dataTable]="listOrders"></app-table>
+  <app-table></app-table>
   <app-form-create *ngIf="createForm"></app-form-create>
   <app-form-edit *ngIf="editOrderForm" [formContent] = formEditContent></app-form-edit>
 </div>

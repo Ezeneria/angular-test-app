@@ -5,21 +5,30 @@
         {{formContent.name}}
     </span>
     <div (click)="closeEditForm()" class="close"></div>
-   </div>
-  <form>
-    <div class="field">
-      <div class="field-title">Описание</div>
-      <div class="field-description">{{formContent.description}}</div>
-    </div>
-    <div class="field comment-title">
-      <div class="field-title">Добавление комментариев</div>
-    </div>
-    <div class="field">
-      <div class="user">
-          <div class="user-title">no name</div>
+  </div>
+  <div class="flex">
+    <form>
+      <div class="field">
+        <div class="field-title">Описание</div>
+        <div class="field-description">{{formContent.description}}</div>
       </div>
-      <textarea type="text"></textarea>
+      <div class="field comment-title">
+        <div class="field-title">Добавление комментариев</div>
+      </div>
+      <button type="submit" class="btn">Сохранить</button>
+      <div class="field comments">
+        <div
+          class="user"
+          *ngFor="let item of formContent.lifetimeItems"
+        >
+          <div class="user-title">Александров Иван</div>
+          <div class="user-created">{{item.createdAt | date: 'd LLLL, H:M'}} прокомментировал</div>
+          <div class="user-comment" type="text">{{item?.comment}}</div>
+        </div>
+      </div>
+    </form>
+    <div class="form-edit-bar">
+
     </div>
-    <button type="submit" class="btn">Сохранить</button>
-  </form>
+  </div>
 </div>

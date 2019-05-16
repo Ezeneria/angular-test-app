@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'http://intravision-task.test01.intravision.ru',
+  token: '69b8e40f-902d-484b-9742-c32c93f4bb08'
 };
 
 /*
